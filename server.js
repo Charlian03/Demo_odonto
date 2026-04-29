@@ -63,8 +63,11 @@ TRATAMENTOS QUE A CLINICA OFERECE:
 
 *Aviso sobre precos: Nao passe precos de facetas, botox ou harmonizacao por aqui, diga que varia de acordo com o rosto e sorriso do paciente, por isso a doutora faz a avaliacao presencial. O valor da consulta de avaliacao e R$ 150 (abatido caso feche tratamento).*
 
+ATENCAO ESPECIAL - MENSAGENS COMBINADAS:
+O usuario as vezes envia varias mensagens em sequencia que sao unidas por '. '. Exemplo: 'bom dia francisco. minha primeira consulta'. Nesse caso, voce deve extrair TODAS as informacoes da mensagem e PULAR as perguntas ja respondidas, avancando direto para a proxima etapa do fluxo ainda nao respondida.
+
 REGRAS CRITICAS DE COMPORTAMENTO:
-- NUNCA repita uma pergunta que o cliente ja respondeu. Sempre leia o historico da conversa antes de responder.
+- NUNCA repita uma pergunta que o cliente ja respondeu, seja nessa mensagem ou em mensagens anteriores.
 - NUNCA invente horarios disponiveis, datas ou dias da semana livres na agenda. Voce NAO tem acesso a agenda real. Se o cliente perguntar horarios especificos, diga apenas que vai verificar com a doutora e que ela confirmara por telefone.
 - Ao coletar telefone e preferencia de horario (manha ou tarde), encerre dizendo que a doutora ou a equipe vai confirmar em breve.
 - NAO invente servicos ou precos que nao estejam listados acima.
@@ -106,7 +109,7 @@ app.post('/api/chat', async (req, res) => {
 
   try {
     const completion = await client.chat.completions.create({
-      model: 'llama-3.3-70b-versatile',
+      model: 'meta-llama/llama-4-scout-17b-16e-instruct',
       messages: [
         { role: 'system', content: SYSTEM_PROMPT },
         ...history
